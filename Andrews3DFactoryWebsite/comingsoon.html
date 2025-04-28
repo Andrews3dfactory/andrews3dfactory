@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coming Soon - Andrew's 3D Factory</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    #countdown {
+      font-size: 40px;
+      margin-top: 30px;
+    }
+
+    a.button {
+      margin-top: 50px;
+      background-color: #3D95CE;
+      padding: 12px 24px;
+      text-decoration: none;
+      color: white;
+      border-radius: 10px;
+      display: inline-block;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚀 Big Things Are Coming!</h1>
+  <p>Andrews 3D Factory will launch soon. Get ready!</p>
+
+  <div id="countdown">Loading countdown...</div>
+
+  <a href="index.html" class="button">← Back to Home</a>
+
+  <script>
+    // SET YOUR LAUNCH DATE HERE
+    var launchDate = new Date("June 1, 2025 12:00:00").getTime();
+
+    var timer = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = launchDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = 
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+      if (distance < 0) {
+        clearInterval(timer);
+        document.getElementById("countdown").innerHTML = "We Are Live!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
