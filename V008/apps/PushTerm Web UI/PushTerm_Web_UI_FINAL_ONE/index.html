@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PushTerm Web</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h3>PushTerm Web</h3>
+      <label>Upload G-code File:</label>
+      <input type="file" id="fileInput" accept=".gcode" />
+      <label>Delay (e.g. m5, s30, m1s15):</label>
+      <input type="text" id="delayInput" placeholder="m1s30" />
+      <label>Number of Copies:</label>
+      <input type="number" id="copiesInput" min="1" value="1" />
+      <label>Object Height (mm):</label>
+      <input type="number" id="heightInput" min="0" step="0.1" />
+      <button onclick="processGcode()">Process G-code</button>
+    </div>
+    <div class="main">
+      <div class="terminal" id="terminal">PushTerm Web ready.
+Upload a file to begin.</div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

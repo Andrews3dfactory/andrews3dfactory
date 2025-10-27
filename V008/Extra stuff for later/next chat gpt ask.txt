@@ -1,0 +1,14 @@
+next chat gpt ask 
+(done)add a log in button for the home page and a sign up and if they log in as me with the right pasword and user name they get in also can you make it so the users paswords and user name is saved on a cvs file or something like that when they sign up
+
+(done)the view products, coming soon, and the download PushTerm Button seems plain in the indext page and can you make a PushTerm Button in the header button with the home and prodcutcs ect buttons 
+
+ok what is the full code allso just add an sign in/login button and if they log in as me they get special perms also add a way to Prevent people from guessing the password using dev tools and please make the admin page link hidden from the main site?
+
+make the website be able to detect if its on a phone or computer to see if its portet mode or lanscape mode 
+
+add a page called files products or some thing like that for stl files
+
+also the button in the coming soon page to the back to home button is palin too
+
+link to chat https://chatgpt.com/share/682fd03c-3c28-8005-a051-00b19edd758b

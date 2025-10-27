@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products - Andrew's 3D Factory</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+    }
+
+    header {
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff6600;
+      text-shadow: 0 0 8px #ff6600;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 15px;
+      width: 300px;
+      padding: 20px;
+      text-align: center;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff6600;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product-card a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #ff6600;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.8em;
+      background-color: rgba(0,0,0,0.7);
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="content">
+  <header>
+    <h1>Our Products</h1>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Products</a>
+      <a href="../about.html">About</a>
+      <a href="../contact.html">Contact</a>
+      <a href="../pushterm/index.html">PushTerm</a>
+      <a href="../apps/index.html">Apps</a>
+    </nav>
+  </header>
+
+<section class="products">
+    <div class="product-card">
+      <img src="../images/Catapult/Front.jpeg" alt="Catapult" />
+      <h2>Catapult</h2>
+      <p>Experience the ultimate blend of fun, interactive play, and education with our Catapult Toys. Designed for endless enjoyment, these toys promise to ignite imaginations and provide hours of entertainment for all ages.</p>
+      <a href="catapult.html">View Product</a>
+    </div>
+    
+    <div class="product-card">
+      <img src="../images/Dinosaur/Front.jpeg" alt="Dinosaur" />
+      <h2>Dinosaur</h2>
+      <p>Explore the world of prehistoric creatures with our dinosaur special. Delve into the fascinating history of dinosaurs, both educational and entertaining. Unleash your inner paleontologist with our dinosaur puzzle & fidget set. Get yours now!</p>
+      <a href="dinosaur.html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/Gig Harbor KeyChain/Front.jpeg" alt="Gig Harbor KeyChain" />
+      <h2>Gig Harbor KeyChain</h2>
+      <p>Carry a piece of Gig Harbor wherever you go with our Gig Harbor KeyChain. Featuring a charming boat design, this keychain is a must-have for Gig Harbor enthusiasts. Get yours today and show off your love for this beautiful coastal town!</p>
+      <a href="gigHarborKeyChain.html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/Gig Harbor Magnets/Front.jpeg" alt="Gig Harbor Magnets" />
+      <h2>Gig Harbor Magnets</h2>
+      <p>Discover the beauty of Gig Harbor with our new design magnets. These best-selling magnets are a must-have for any magnet collector or Gig Harbor enthusiast. Get yours now and bring a piece of Gig Harbor into your home!</p>
+      <a href="gigHarborMagnets.html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/Pencil Holders/Front.jpeg" alt="Pencil Holders" />
+      <h2>Pencil Holders</h2>
+      <p>Discover the perfect blend of durability, style, and versatility with our pencil holders. Crafted from high-quality materials, these holders are designed to withstand the test of time while adding a touch of elegance to your workspace. Keep your desk organized in style with our versatile storage solutions.</p>
+      <a href="pencilHolders.html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/Push and pull Apple Watch charger/Front.jpeg" alt="Push and pull Apple Watch charger" />
+      <h2>Push and pull Apple Watch charger</h2>
+      <p>No Discription</p>
+      <a href="pushAndPullAppleWatchCharger(comingOutSoon).html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/tealightholder/front.JPEG" alt="Tealight Candle Holder" />
+      <h2>🕯️ Tealight Candle Holder</h2>
+      <p>Elegant Hand Made TeaLight Candle Holder. Click for more views!</p>
+      <a href="tealightholder.html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/The Christmas Bundle/Front.jpeg" alt="Tealight Candle Holder" />
+      <h2>The Christmas Bundle</h2>
+      <p>Discover the ultimate Christmas Bundle featuring 2 fidgets, 2 keychains, and charming Gig Harbor magnets. Elevate your holiday gifting with this exclusive collection. Order now!</p>
+      <a href="theChristmasBundle.html">View Product</a>
+    </div>
+
+    <div class="product-card">
+      <img src="../images/Turtle keychain/Front.jpeg" alt="Turtle keychain" />
+      <h2>Turtle keychain</h2>
+      <p>This 3D printed turtle keychain is a must-have accessory and a bestseller! Add a touch of charm to your keys with this adorable turtle design.</p>
+      <a href="turtleKeychain.html">View Product</a>
+    </div>
+  </section>
+  
+  <footer>
+    © 2025 Andrew's 3D Factory. All rights reserved.
+  </footer>
+</div>
+
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        velocity: Math.random() * 0.5
+      });
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.velocity;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  animate();
+</script>
+
+</body>
+</html>

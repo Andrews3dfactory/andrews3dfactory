@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon - Andrew's 3D Factory</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      background: black;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 50px 20px;
+    }
+
+    header {
+      padding: 20px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    h1 {
+      font-size: 50px;
+      margin: 40px 0 20px;
+      text-shadow: 0 0 20px #00ffff;
+    }
+
+    p {
+      font-size: 22px;
+      margin-bottom: 40px;
+      color: #ccc;
+    }
+
+    #countdown {
+      font-size: 36px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+
+    a.button {
+      margin-top: 50px;
+      background-color: #3D95CE;
+      padding: 12px 24px;
+      text-decoration: none;
+      color: white;
+      border-radius: 10px;
+      display: inline-block;
+      font-size: 20px;
+      box-shadow: 0 0 10px #3D95CE;
+      transition: 0.3s;
+    }
+
+    a.button:hover {
+      background-color: #246b99;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.8em;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  </style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="content">
+  <header>
+    <h1>🚀 Big Things Are Coming!</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products/index.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="pushterm/index.html">PushTerm</a> <!-- NEW -->
+      <a href="apps/index.html">Apps</a>
+    </nav>
+  </header>
+
+  <p>Andrews 3D Factory will launch soon. Get ready!</p>
+  <div id="countdown">Loading countdown...</div>
+  <a href="index.html" class="button">← Back to Home</a>
+  <footer>
+    © 2025 Andrew's 3D Factory. All rights reserved.
+  </footer>
+</div>
+
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 200; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 1.5,
+        velocity: Math.random() * 0.5
+      });
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.velocity;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  animate();
+
+  // Countdown Timer
+  const countdownEl = document.getElementById("countdown");
+  const launchDate = new Date("June 21, 2025 12:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    if (distance < 0) {
+      clearInterval(countdown);
+      countdownEl.innerHTML = "✨ We Are Live! ✨";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+</script>
+</body>
+</html>

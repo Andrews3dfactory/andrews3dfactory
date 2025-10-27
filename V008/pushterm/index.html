@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PushTerm - Download</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #00ffff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    img {
+      max-width: 300px;
+      margin: 30px auto 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    }
+
+    p {
+      font-size: 20px;
+      color: #ccc;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    a.download {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 15px 30px;
+      font-size: 20px;
+      color: #fff;
+      background: #00ffff;
+      border-radius: 10px;
+      text-decoration: none;
+      text-shadow: 0 0 5px #000;
+      box-shadow: 0 0 15px #00ffff;
+      transition: 0.3s ease-in-out;
+    }
+
+    a.download:hover {
+      background: #00cccc;
+      box-shadow: 0 0 25px #00ffff, 0 0 50px #00ffff;
+    }
+
+    a.backlink {
+      display: block;
+      margin-top: 40px;
+      color: #999;
+      text-decoration: none;
+    }
+
+    .iframe-box {
+      margin: 40px auto;
+      max-width: 960px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: 2px solid #00ffff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    h2 {
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<div class="content">
+  <h1>PushTerm</h1>
+  <img src="pushterm-logo.PNG" alt="PushTerm Logo" />
+  <p>PushTerm is a Python command-line tool that modifies G-code for the Bambu Lab X1 Carbon 3D printer. It adds push-off commands so the toolhead ejects prints after a cooldown delay, avoiding extra hardware. Made to simplify print removal and protect your printer.</p>
+
+  <!-- Download Button -->
+  <a class="download" href="../PushTerm.zip" download>⬇️ Download PushTerm ZIP</a>
+
+  <!-- Try In Browser Box -->
+  <div class="iframe-box">
+    <h2>Try PushTerm in Your Browser (No Download Needed) WAIT THERES A BUG you can only doo 2 copys max im working on it. it should be out soon</h2>
+    <iframe src="PushTerm_Web_UI_FINAL_ONE/index.html" allowfullscreen></iframe>
+  </div>
+
+  <a class="backlink" href="../index.html">← Back to Home</a>
+</div>
+
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    for (let i = 0; i < 150; i++) {
+      stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        v: Math.random() * 0.4 + 0.2
+      });
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'white';
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.v;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+    requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  animate();
+</script>
+
+</body>
+</html>
